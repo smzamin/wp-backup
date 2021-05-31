@@ -24,6 +24,8 @@ ls -1 /var/www/ -Ihtml -I22222 | while read user; do
     wait
     rm -f $BACKUP_DIR/$DATE/*
     wait
+    rclone delete remote:backup/$SERVER_HOSTNAME --min-age 30d
+    wait
 done
 echo "Backup Creation and Upload to Selected Storage Finished"
 duration=$((SECONDS - start))
