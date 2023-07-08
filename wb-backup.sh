@@ -18,7 +18,7 @@ start=$SECONDS
     wait
     echo $BACKUP_DIR/$DATE
     echo $REMOTE/$SERVER_HOSTNAME/$DATE
-    rclone copy $BACKUP_DIR/$DATE $REMOTE/$SERVER_HOSTNAME/$DATE
+    rclone copy --progress $BACKUP_DIR/$DATE $REMOTE/$SERVER_HOSTNAME/$DATE
     wait
     rm -f $BACKUP_DIR/*
     wait

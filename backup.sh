@@ -20,7 +20,7 @@ ls -1 /var/www/ -Ihtml -I22222 | while read user; do
     wait
     rm -f /var/www/$user/*.sql
     wait
-    rclone copy $BACKUP_DIR/$DATE remote:backup/$SERVER_HOSTNAME/$DATE
+    rclone copy --progress $BACKUP_DIR/$DATE remote:backup/$SERVER_HOSTNAME/$DATE
     wait
     rm -f $BACKUP_DIR/$DATE/*
     wait
